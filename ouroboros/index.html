@@ -8,30 +8,36 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <img src="../logo.svg" alt="Ouroboros logo">
+    <div class="hero">
+      <img src="../logo.svg" alt="Ouroboros logo" class="hero-logo">
       <h1>Ouroboros</h1>
       <p class="subtitle">Research Governance Protocol</p>
-    </header>
+      <p class="tagline">The serpent eats its own tail — each project feeds the next</p>
+    </div>
 
     <nav>
       <a href="../">Home</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#status">Status</a>
+      <a href="#arch">Architecture</a>
       <a href="https://github.com/Fr0do/ouroboros" target="_blank">GitHub</a>
-      <a href="https://github.com/Fr0do/ouroboros/releases" target="_blank">Releases</a>
-      <a href="https://github.com/Fr0do/ouroboros/issues" target="_blank">Issues</a>
     </nav>
 
     <section>
-      <p>The serpent eats its own tail: each project feeds the next, and the meta-process improves itself. Ouroboros is the governance layer for all active research — a Telegram bot, multi-agent orchestration, CI/CD, and self-improving workflow automation.</p>
+      <p>Ouroboros is the governance layer for all active research — a Telegram bot with 17 commands, multi-agent orchestration via Claude Code teams, CI/CD automation, and a self-improving workflow that documents its own evolution.</p>
     </section>
+
+    <!-- ═══ DASHBOARD ═══ -->
+    <h2 id="dashboard">Dashboard</h2>
+    <p class="section-desc">Live metrics. Updated via <code>/page</code> Telegram command.</p>
 
     <!-- VITALS:START — auto-updated by /page command -->
     <div class="metrics-grid" id="vitals">
-      <div class="metric-card">
+      <div class="metric-card accent-blue">
         <div class="value" id="v-commits">31</div>
         <div class="metric-label">Commits (30d)</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card accent-indigo">
         <div class="value" id="v-loc">2853</div>
         <div class="metric-label">Lines of Code</div>
       </div>
@@ -39,7 +45,7 @@
         <div class="value" id="v-files">29</div>
         <div class="metric-label">Python Files</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card accent-green">
         <div class="value" id="v-handlers">17</div>
         <div class="metric-label">Bot Handlers</div>
       </div>
@@ -47,22 +53,120 @@
         <div class="value" id="v-services">9</div>
         <div class="metric-label">Services</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card accent-amber">
         <div class="value" id="v-issues-open">0</div>
         <div class="metric-label">Open Issues</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card accent-green">
         <div class="value" id="v-issues-closed">0</div>
         <div class="metric-label">Closed Issues</div>
       </div>
-      <div class="metric-card">
-        <div class="value" id="v-version">—</div>
+      <div class="metric-card accent-indigo">
+        <div class="value" id="v-version">v6.30.0</div>
         <div class="metric-label">Version</div>
       </div>
     </div>
     <!-- VITALS:END -->
 
-    <h2>Status &amp; Findings</h2>
+    <!-- Charts row -->
+    <div class="dashboard reveal">
+      <div class="chart-card">
+        <h3>Token Savings (RTK)</h3>
+        <div class="ring-container">
+          <div class="ring">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="40"/>
+              <circle class="ring-fill" cx="50" cy="50" r="40" id="rtk-ring"/>
+            </svg>
+            <div class="ring-label" id="rtk-pct">83%</div>
+          </div>
+          <div class="ring-details">
+            <strong>166K tokens</strong> saved<br>
+            331 commands proxied<br>
+            Avg latency: 265ms<br>
+            <span style="color:var(--green)">Efficiency: excellent</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Codebase Composition</h3>
+        <div class="h-bar-chart">
+          <div class="h-bar-row">
+            <span class="h-bar-label">Handlers</span>
+            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:65%"></div></div>
+            <span class="h-bar-value">17</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">Services</span>
+            <div class="h-bar-track"><div class="h-bar-fill green" style="width:35%"></div></div>
+            <span class="h-bar-value">9</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">CI/CD</span>
+            <div class="h-bar-track"><div class="h-bar-fill amber" style="width:15%"></div></div>
+            <span class="h-bar-value">4</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">Skills</span>
+            <div class="h-bar-track"><div class="h-bar-fill indigo" style="width:12%"></div></div>
+            <span class="h-bar-value">3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard reveal">
+      <div class="chart-card">
+        <h3>Commit Activity (last 7 days)</h3>
+        <div class="bar-chart" id="commit-bars">
+          <div class="bar" style="height:15%"></div>
+          <div class="bar" style="height:0%"></div>
+          <div class="bar" style="height:0%"></div>
+          <div class="bar" style="height:100%"></div>
+          <div class="bar" style="height:85%"></div>
+          <div class="bar" style="height:40%"></div>
+          <div class="bar" style="height:20%"></div>
+        </div>
+        <div class="bar-labels">
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Version Evolution</h3>
+        <div class="h-bar-chart">
+          <div class="h-bar-row">
+            <span class="h-bar-label">v0.1.0</span>
+            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:5%"></div></div>
+            <span class="h-bar-value">Init</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">v6.28.3</span>
+            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:45%"></div></div>
+            <span class="h-bar-value">Bot</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">v6.28.4</span>
+            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:65%"></div></div>
+            <span class="h-bar-value">Research</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">v6.29.0</span>
+            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:82%"></div></div>
+            <span class="h-bar-value">Issues</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">v6.30.0</span>
+            <div class="h-bar-track"><div class="h-bar-fill green" style="width:100%"></div></div>
+            <span class="h-bar-value">Site</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ STATUS & FINDINGS ═══ -->
+    <h2 id="status">Status &amp; Findings</h2>
     <p class="section-desc">A living journal. Updated via Telegram <code>/page</code> command.</p>
 
     <!-- STATUS:START — auto-updated by /page command -->
@@ -124,59 +228,156 @@
     </div>
     <!-- STATUS:END -->
 
-    <h2>Architecture</h2>
-    <table>
-      <thead>
-        <tr><th>Component</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Telegram Bot</td><td>Remote control panel — 16 commands for training, infra, notes, and team management</td></tr>
-        <tr><td>Agent Teams</td><td>Native Claude Code multi-agent orchestration with shared task lists</td></tr>
-        <tr><td>GitHub CI</td><td>Lint (ruff), release automation, upstream sync, remote health ping</td></tr>
-        <tr><td>RTK Integration</td><td>60–90% token savings on all CLI operations via Rust Token Killer</td></tr>
-        <tr><td>Issue Journaling</td><td>Every feature starts as an issue, with progress comments and auto-close</td></tr>
-      </tbody>
-    </table>
+    <!-- ═══ ARCHITECTURE ═══ -->
+    <h2 id="arch">Architecture</h2>
+    <p class="section-desc">How the pieces fit together.</p>
 
+    <div class="arch-diagram reveal">
+      <div class="arch-node">
+        <div class="arch-icon">💬</div>
+        <div class="arch-name">Telegram</div>
+        <div class="arch-detail">17 commands</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node">
+        <div class="arch-icon">🤖</div>
+        <div class="arch-name">Bot Engine</div>
+        <div class="arch-detail">python-telegram-bot</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node">
+        <div class="arch-icon">🔀</div>
+        <div class="arch-name">Agent Teams</div>
+        <div class="arch-detail">Claude Code</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node">
+        <div class="arch-icon">🖥️</div>
+        <div class="arch-name">Compute</div>
+        <div class="arch-detail">kurkin-1/4</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node">
+        <div class="arch-icon">📊</div>
+        <div class="arch-name">Results</div>
+        <div class="arch-detail">ClearML + Notion</div>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr><th>Component</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Telegram Bot</strong></td><td>Remote control panel — training, infra, notes, team management</td></tr>
+          <tr><td><strong>Agent Teams</strong></td><td>Native Claude Code multi-agent orchestration with shared task lists</td></tr>
+          <tr><td><strong>GitHub CI</strong></td><td>Lint (ruff), release automation, upstream sync, remote health ping</td></tr>
+          <tr><td><strong>RTK Integration</strong></td><td>83% token savings on all CLI operations via Rust Token Killer</td></tr>
+          <tr><td><strong>Issue Journaling</strong></td><td>Every feature starts as an issue, with progress comments and auto-close</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══ MANAGED PROJECTS ═══ -->
     <h2>Managed Projects</h2>
-    <table>
-      <thead>
-        <tr><th>Project</th><th>Description</th><th>Status</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>s_cot</td><td>Spectral-R1: latent energy-based GRPO reasoning</td><td>Training + Paper</td></tr>
-        <tr><td>long-vqa (MMReD)</td><td>Cross-modal dense context reasoning benchmark</td><td>Eval Ongoing</td></tr>
-        <tr><td>bbbo</td><td>Bayesian black-box optimization framework</td><td>Active Development</td></tr>
-        <tr><td>ouroboros</td><td>This meta-project</td><td>Bootstrapping</td></tr>
-      </tbody>
-    </table>
+    <p class="section-desc">Research coordinated through ouroboros.</p>
 
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr><th>Project</th><th>Description</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>s_cot</strong></td>
+            <td>Spectral-R1: latent energy-based GRPO reasoning</td>
+            <td><span class="status-pill green">Training + Paper</span></td>
+          </tr>
+          <tr>
+            <td><strong>long-vqa</strong></td>
+            <td>MMReD: cross-modal dense context reasoning benchmark</td>
+            <td><span class="status-pill amber">Eval Ongoing</span></td>
+          </tr>
+          <tr>
+            <td><strong>bbbo</strong></td>
+            <td>Bayesian black-box optimization framework</td>
+            <td><span class="status-pill green">Active Dev</span></td>
+          </tr>
+          <tr>
+            <td><strong>ouroboros</strong></td>
+            <td>This meta-project</td>
+            <td><span class="status-pill indigo">Bootstrapping</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══ PRINCIPLES ═══ -->
     <h2>Principles</h2>
-    <table>
-      <thead>
-        <tr><th>#</th><th>Principle</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>Autonomy with accountability — agents work independently but log everything</td></tr>
-        <tr><td>2</td><td>Minimal overhead — RTK for tokens, Telegram for control, Notion for memory</td></tr>
-        <tr><td>3</td><td>Reproducibility — every experiment has a config, seed, and commit hash</td></tr>
-        <tr><td>4</td><td>Cross-pollination — projects share insights, not just code</td></tr>
-        <tr><td>5</td><td>The loop closes — OUROBOROS.md itself gets updated as the process improves</td></tr>
-        <tr><td>6</td><td>Atomic updates — every file change is self-contained and non-breaking</td></tr>
-        <tr><td>7</td><td>Minimalism — single source of truth; delete over deprecate</td></tr>
-      </tbody>
-    </table>
+    <p class="section-desc">Seven rules governing the protocol.</p>
 
+    <div class="principles-grid reveal">
+      <div class="principle">
+        <span class="principle-num">1</span>
+        <div class="principle-text"><strong>Autonomy with accountability</strong> — agents work independently but log everything</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">2</span>
+        <div class="principle-text"><strong>Minimal overhead</strong> — RTK for tokens, Telegram for control, Notion for memory</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">3</span>
+        <div class="principle-text"><strong>Reproducibility</strong> — every experiment has a config, seed, and commit hash</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">4</span>
+        <div class="principle-text"><strong>Cross-pollination</strong> — projects share insights, not just code</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">5</span>
+        <div class="principle-text"><strong>The loop closes</strong> — OUROBOROS.md itself gets updated as the process improves</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">6</span>
+        <div class="principle-text"><strong>Atomic updates</strong> — every file change is self-contained and non-breaking</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">7</span>
+        <div class="principle-text"><strong>Minimalism</strong> — single source of truth; delete over deprecate</div>
+      </div>
+    </div>
+
+    <!-- ═══ LINKS ═══ -->
     <h2>Links</h2>
     <ul class="links">
-      <li><a href="https://github.com/Fr0do/ouroboros">GitHub Repository</a></li>
-      <li><a href="https://github.com/Fr0do/ouroboros/releases">Releases</a></li>
-      <li><a href="https://github.com/Fr0do/ouroboros/issues">Issue Tracker</a></li>
+      <li><a href="https://github.com/Fr0do/ouroboros">GitHub Repository →</a></li>
+      <li><a href="https://github.com/Fr0do/ouroboros/releases">Releases →</a></li>
+      <li><a href="https://github.com/Fr0do/ouroboros/issues">Issue Tracker →</a></li>
     </ul>
 
     <footer>
       <p>Part of the <a href="../">Maxim Kurkin Research</a> portfolio. Auto-updated by Ouroboros.</p>
     </footer>
   </div>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Animate RTK ring on load
+    window.addEventListener('load', () => {
+      const pct = 83;
+      const circumference = 2 * Math.PI * 40; // r=40
+      const offset = circumference * (1 - pct / 100);
+      const ring = document.getElementById('rtk-ring');
+      if (ring) {
+        setTimeout(() => { ring.style.strokeDashoffset = offset; }, 300);
+      }
+    });
+  </script>
 </body>
 </html>

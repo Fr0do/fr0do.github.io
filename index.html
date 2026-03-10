@@ -8,14 +8,16 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <img src="logo.svg" alt="Research logo">
+    <div class="hero">
+      <img src="logo.svg" alt="Research logo" class="hero-logo">
       <h1>Maxim Kurkin</h1>
       <p class="subtitle">AI Research &amp; Engineering</p>
-    </header>
+      <p class="tagline">Spectral reasoning, multi-modal benchmarks, and self-improving agents</p>
+    </div>
 
     <nav>
       <a href="#projects">Projects</a>
+      <a href="#stats">Metrics</a>
       <a href="https://github.com/Fr0do" target="_blank">GitHub</a>
     </nav>
 
@@ -39,7 +41,9 @@
     </div>
 
     <h2 id="projects">Research Projects</h2>
-    <div class="card-grid">
+    <p class="section-desc">Active work across reasoning, benchmarks, optimization, and meta-governance.</p>
+
+    <div class="card-grid reveal">
       <a href="ouroboros/" class="card" style="text-decoration:none; color:inherit;">
         <h3>Ouroboros</h3>
         <p>Research governance meta-project. Telegram bot, multi-agent orchestration, CI/CD. The serpent eats its own tail.</p>
@@ -47,7 +51,7 @@
       </a>
       <div class="card">
         <h3>Spectral-R1 (s_cot)</h3>
-        <p>Latent energy-based GRPO reasoning with spectral rewards. NeurIPS 2025 submission.</p>
+        <p>Latent energy-based GRPO reasoning with spectral rewards on LFM2.5. NeurIPS 2025 submission.</p>
         <span class="badge active">Training + Paper</span>
       </div>
       <div class="card">
@@ -63,8 +67,16 @@
     </div>
 
     <footer>
-      <p>Built with zero dependencies. Updated by <a href="https://github.com/Fr0do/ouroboros">Ouroboros</a>.</p>
+      <p>Built with zero dependencies. Auto-updated by <a href="https://github.com/Fr0do/ouroboros">Ouroboros</a>.</p>
     </footer>
   </div>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
