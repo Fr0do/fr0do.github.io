@@ -28,11 +28,11 @@
     <!-- VITALS:START — auto-updated by /page command -->
     <div class="metrics-grid" id="vitals">
       <div class="metric-card">
-        <div class="value" id="v-commits">30</div>
+        <div class="value" id="v-commits">31</div>
         <div class="metric-label">Commits (30d)</div>
       </div>
       <div class="metric-card">
-        <div class="value" id="v-loc">2728</div>
+        <div class="value" id="v-loc">2853</div>
         <div class="metric-label">Lines of Code</div>
       </div>
       <div class="metric-card">
@@ -61,6 +61,68 @@
       </div>
     </div>
     <!-- VITALS:END -->
+
+    <h2>Status &amp; Findings</h2>
+    <p class="section-desc">A living journal. Updated via Telegram <code>/page</code> command.</p>
+
+    <!-- STATUS:START — auto-updated by /page command -->
+    <div class="timeline" id="status">
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">2026-03-10</div>
+        <div class="timeline-title">Status &amp; Findings section added to project page</div>
+        <div class="timeline-body">Living journal powered by /page Telegram command. Entries stored in status.json, rendered as Apple-minimalist timeline. Tags: status, finding, milestone.</div>
+        <span class="timeline-tag milestone">milestone</span>
+      </div>
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">2026-03-10</div>
+        <div class="timeline-title">GitHub Pages site launched</div>
+        <div class="timeline-body">Research portfolio live at fr0do.github.io. Ouroboros project page with auto-updating vitals via /page Telegram command. Apple-minimalist design, zero dependencies.</div>
+        <span class="timeline-tag milestone">milestone</span>
+      </div>
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">2026-03-09</div>
+        <div class="timeline-title">Issue journaling workflow established</div>
+        <div class="timeline-body">Every feature now starts as a GitHub issue with self-discussion in comments. /feature Telegram command creates structured issues. /vitals dashboard shows project health as a 2x2 chart.</div>
+        <span class="timeline-tag milestone">milestone</span>
+      </div>
+      <div class="timeline-entry">
+        <div class="timeline-date">2026-03-09</div>
+        <div class="timeline-title">Multi-agent orchestration integrated</div>
+        <div class="timeline-body">Native Claude Code agent teams (3-5 teammates, shared task list, plan approval gates) replaced the filesystem-based team/ fallback. Parallel agent implementation with zero file conflicts.</div>
+        <span class="timeline-tag status">status</span>
+      </div>
+      <div class="timeline-entry">
+        <div class="timeline-date">2026-03-09</div>
+        <div class="timeline-title">CI/CD pipeline: ruff, stale bot, release automation</div>
+        <div class="timeline-body">Pre-commit with ruff linting on push. Stale issue bot (90d stale, 30d close). Release workflow on tag push. Upstream sync from razzant/ouroboros daily.</div>
+        <span class="timeline-tag status">status</span>
+      </div>
+      <div class="timeline-entry">
+        <div class="timeline-date">2026-03-09</div>
+        <div class="timeline-title">Telegram bot: 17 commands operational</div>
+        <div class="timeline-body">Full remote control panel: /run, /stop, /logs, /metrics, /completions, /ckpt, /disk, /sync, /gpu, /crashlog, /vitals, /feature, /page, /team, /note, /task, /update. Runs on kurkin-1 compute node.</div>
+        <span class="timeline-tag status">status</span>
+      </div>
+      <div class="timeline-entry">
+        <div class="timeline-date">2026-03-09</div>
+        <div class="timeline-title">RTK token savings: 60-90% on CLI operations</div>
+        <div class="timeline-body">Rust Token Killer auto-proxies all shell commands via Claude Code hook. Massive context window savings on git, file listing, and dev operations.</div>
+        <span class="timeline-tag finding">finding</span>
+      </div>
+      <div class="timeline-entry">
+        <div class="timeline-date">2026-03-08</div>
+        <div class="timeline-title">Spectral-R1: curriculum GRPO training in progress</div>
+        <div class="timeline-body">LFM2.5-1.2B-Thinking with spectral energy rewards. Dataset v3 (adjacency lists, 3-6 nodes, forced 2+ hops). Strong conciseness rewards shaping reasoning length.</div>
+        <span class="timeline-tag finding">finding</span>
+      </div>
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">2026-03-08</div>
+        <div class="timeline-title">Ouroboros bootstrapped</div>
+        <div class="timeline-body">Initial meta-project created via Cowork. OUROBOROS.md governance protocol, Telegram bot skeleton, project registry for s_cot, long-vqa, bbbo.</div>
+        <span class="timeline-tag milestone">milestone</span>
+      </div>
+    </div>
+    <!-- STATUS:END -->
 
     <h2>Architecture</h2>
     <table>
