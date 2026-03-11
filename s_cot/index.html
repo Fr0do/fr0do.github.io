@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spectral-R1 — Latent Energy-Based GRPO Reasoning</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <img src="../logo.svg" alt="Spectral-R1 logo" class="hero-logo">
+      <h1>Spectral-R1</h1>
+      <p class="subtitle">Latent Energy-Based GRPO Reasoning</p>
+      <p class="tagline">Teaching small models to reason about graphs through spectral energy alignment</p>
+    </div>
+
+    <nav>
+      <a href="../">Home</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#results">Results</a>
+      <a href="#method">Method</a>
+      <a href="https://github.com/Fr0do/ouroboros" target="_blank">GitHub</a>
+    </nav>
+
+    <section>
+      <p>Spectral-R1 trains compact language models to solve graph reasoning tasks by aligning latent representations with spectral energy objectives. Using a Contextual Hamiltonian formulation and Rayleigh Conjugate Descent, the model learns structured reasoning over weighted graphs -- achieving significant accuracy gains with shorter completions. Target venue: NeurIPS 2025.</p>
+    </section>
+
+    <!-- ═══ DASHBOARD ═══ -->
+    <h2 id="dashboard">Dashboard</h2>
+    <p class="section-desc">Key training and evaluation metrics.</p>
+
+    <!-- EVAL:START -->
+    <div class="metrics-grid reveal">
+      <div class="metric-card accent-green">
+        <div class="value">41.3%</div>
+        <div class="metric-label">Accuracy (Erdos-Renyi)</div>
+      </div>
+      <div class="metric-card accent-green">
+        <div class="value">33.8%</div>
+        <div class="metric-label">Accuracy (Power-law)</div>
+      </div>
+      <div class="metric-card accent-amber">
+        <div class="value">24.5%</div>
+        <div class="metric-label">Baseline (Erdos-Renyi)</div>
+      </div>
+      <div class="metric-card accent-blue">
+        <div class="value">-37%</div>
+        <div class="metric-label">Completion Length</div>
+      </div>
+      <div class="metric-card accent-indigo">
+        <div class="value">1.2B</div>
+        <div class="metric-label">Model Size</div>
+      </div>
+      <div class="metric-card accent-amber">
+        <div class="value">Training</div>
+        <div class="metric-label">Status</div>
+      </div>
+    </div>
+    <!-- EVAL:END -->
+
+    <!-- ═══ RESULTS ═══ -->
+    <h2 id="results">Evaluation Results</h2>
+    <p class="section-desc">Benchmark accuracy across graph topologies.</p>
+
+    <!-- RESULTS:START -->
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Benchmark</th>
+            <th>Topology</th>
+            <th>Accuracy</th>
+            <th>Baseline</th>
+            <th>Delta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>JSON Pathfinder</strong></td>
+            <td>Erdos-Renyi</td>
+            <td>41.3%</td>
+            <td>24.5%</td>
+            <td><span class="status-pill green">+16.8pp</span></td>
+          </tr>
+          <tr>
+            <td><strong>JSON Pathfinder</strong></td>
+            <td>Power-law</td>
+            <td>33.8%</td>
+            <td>18.2%</td>
+            <td><span class="status-pill green">+15.6pp</span></td>
+          </tr>
+          <tr>
+            <td><strong>NLGraph</strong></td>
+            <td>shortest_path</td>
+            <td>TBD</td>
+            <td>--</td>
+            <td><span class="status-pill amber">Pending</span></td>
+          </tr>
+          <tr>
+            <td><strong>Reasoning-Gym</strong></td>
+            <td>--</td>
+            <td>TBD</td>
+            <td>--</td>
+            <td><span class="status-pill amber">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- RESULTS:END -->
+
+    <!-- Charts row -->
+    <div class="dashboard reveal">
+      <div class="chart-card">
+        <h3>Accuracy Comparison</h3>
+        <div class="h-bar-chart">
+          <div class="h-bar-row">
+            <span class="h-bar-label">ER (ours)</span>
+            <div class="h-bar-track"><div class="h-bar-fill green" style="width:41.3%"></div></div>
+            <span class="h-bar-value">41.3%</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">ER (base)</span>
+            <div class="h-bar-track"><div class="h-bar-fill amber" style="width:24.5%"></div></div>
+            <span class="h-bar-value">24.5%</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">PL (ours)</span>
+            <div class="h-bar-track"><div class="h-bar-fill green" style="width:33.8%"></div></div>
+            <span class="h-bar-value">33.8%</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">PL (base)</span>
+            <div class="h-bar-track"><div class="h-bar-fill amber" style="width:18.2%"></div></div>
+            <span class="h-bar-value">18.2%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Reward Components</h3>
+        <div class="h-bar-chart">
+          <div class="h-bar-row">
+            <span class="h-bar-label">Accuracy</span>
+            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:45%"></div></div>
+            <span class="h-bar-value">0.45</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">Format</span>
+            <div class="h-bar-track"><div class="h-bar-fill green" style="width:85%"></div></div>
+            <span class="h-bar-value">0.85</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">Spectral</span>
+            <div class="h-bar-track"><div class="h-bar-fill indigo" style="width:62%"></div></div>
+            <span class="h-bar-value">0.62</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ METHOD ═══ -->
+    <h2 id="method">Method</h2>
+    <p class="section-desc">Training pipeline and architecture overview.</p>
+
+    <div class="arch-diagram reveal">
+      <div class="arch-node">
+        <div class="arch-icon">[D]</div>
+        <div class="arch-name">Dataset</div>
+        <div class="arch-detail">JSON Pathfinder</div>
+      </div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node">
+        <div class="arch-icon">[T]</div>
+        <div class="arch-name">GRPO Trainer</div>
+        <div class="arch-detail">FSDP2 + vLLM</div>
+      </div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node">
+        <div class="arch-icon">[M]</div>
+        <div class="arch-name">Model</div>
+        <div class="arch-detail">LFM2.5-1.2B</div>
+      </div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node">
+        <div class="arch-icon">[C]</div>
+        <div class="arch-name">Completions</div>
+        <div class="arch-detail">max 512 tokens</div>
+      </div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node">
+        <div class="arch-icon">[R]</div>
+        <div class="arch-name">Reward</div>
+        <div class="arch-detail">Acc + Fmt + Spectral</div>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr><th>Component</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Base Model</strong></td><td>LFM2.5-1.2B-Thinking (LiquidAI, hidden=2048, 16 layers)</td></tr>
+          <tr><td><strong>Training</strong></td><td>GRPO with FSDP2, vLLM colocate mode</td></tr>
+          <tr><td><strong>Dataset</strong></td><td>JSON Pathfinder (curriculum: 25% medium, 35% hard, 40% expert)</td></tr>
+          <tr><td><strong>Spectral Reward</strong></td><td>Contextual Hamiltonian + Rayleigh Conjugate Descent solver</td></tr>
+          <tr><td><strong>Compute</strong></td><td>kurkin-1 / kurkin-4 (shared NFS)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══ LINKS ═══ -->
+    <h2>Links</h2>
+    <ul class="links">
+      <li><a href="../ouroboros/">Ouroboros Project &rarr;</a></li>
+      <li><a href="https://github.com/Fr0do/ouroboros">GitHub Repository &rarr;</a></li>
+      <li><a href="https://github.com/Fr0do/ouroboros/issues/23">Issue Tracker (#23) &rarr;</a></li>
+    </ul>
+
+    <footer>
+      <p>Part of the <a href="../">Maxim Kurkin Research</a> portfolio. Managed by <a href="../ouroboros/">Ouroboros</a>.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
