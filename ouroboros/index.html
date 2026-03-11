@@ -78,13 +78,14 @@
               <circle class="ring-bg" cx="50" cy="50" r="40"/>
               <circle class="ring-fill" cx="50" cy="50" r="40" id="rtk-ring"/>
             </svg>
-            <div class="ring-label" id="rtk-pct">83%</div>
+            <div class="ring-label" id="rtk-pct">78%</div>
           </div>
           <div class="ring-details">
-            <strong>166K tokens</strong> saved<br>
-            331 commands proxied<br>
-            Avg latency: 265ms<br>
-            <span style="color:var(--green)">Efficiency: excellent</span>
+            <strong>172K tokens</strong> saved out of 222K<br>
+            436 commands proxied<br>
+            Avg latency: 287ms<br>
+            Top: <code>git log -p</code> → 99.9% savings<br>
+            <span style="color:var(--green)">~$0.50 saved at Opus rates</span>
           </div>
         </div>
       </div>
@@ -134,32 +135,32 @@
       </div>
 
       <div class="chart-card">
-        <h3>Version Evolution</h3>
+        <h3>RTK Top Savers (by tokens)</h3>
         <div class="h-bar-chart">
           <div class="h-bar-row">
-            <span class="h-bar-label">v0.1.0</span>
-            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:5%"></div></div>
-            <span class="h-bar-value">Init</span>
-          </div>
-          <div class="h-bar-row">
-            <span class="h-bar-label">v6.28.3</span>
-            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:45%"></div></div>
-            <span class="h-bar-value">Bot</span>
-          </div>
-          <div class="h-bar-row">
-            <span class="h-bar-label">v6.28.4</span>
-            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:65%"></div></div>
-            <span class="h-bar-value">Research</span>
-          </div>
-          <div class="h-bar-row">
-            <span class="h-bar-label">v6.29.0</span>
-            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:82%"></div></div>
-            <span class="h-bar-value">Issues</span>
-          </div>
-          <div class="h-bar-row">
-            <span class="h-bar-label">v6.30.0</span>
+            <span class="h-bar-label">git log -p</span>
             <div class="h-bar-track"><div class="h-bar-fill green" style="width:100%"></div></div>
-            <span class="h-bar-value">Site</span>
+            <span class="h-bar-value">135K</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">ls</span>
+            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:12%"></div></div>
+            <span class="h-bar-value">17K</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">git diff</span>
+            <div class="h-bar-track"><div class="h-bar-fill blue" style="width:4%"></div></div>
+            <span class="h-bar-value">2.4K</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">git status</span>
+            <div class="h-bar-track"><div class="h-bar-fill amber" style="width:1.5%"></div></div>
+            <span class="h-bar-value">1.8K</span>
+          </div>
+          <div class="h-bar-row">
+            <span class="h-bar-label">find</span>
+            <div class="h-bar-track"><div class="h-bar-fill indigo" style="width:1%"></div></div>
+            <span class="h-bar-value">1.5K</span>
           </div>
         </div>
       </div>
@@ -370,7 +371,7 @@
 
     // Animate RTK ring on load
     window.addEventListener('load', () => {
-      const pct = 83;
+      const pct = 78;
       const circumference = 2 * Math.PI * 40; // r=40
       const offset = circumference * (1 - pct / 100);
       const ring = document.getElementById('rtk-ring');
