@@ -44,22 +44,22 @@
     <p class="section-desc">Active work across reasoning, benchmarks, optimization, and meta-governance.</p>
 
     <div class="card-grid reveal">
-      <a href="ouroboros/" class="card" style="text-decoration:none; color:inherit;">
+      <a href="ouroboros/" class="card" data-repo="ouroboros" style="text-decoration:none; color:inherit;">
         <h3>Ouroboros</h3>
         <p>Research governance meta-project. Telegram bot, multi-agent orchestration, CI/CD. The serpent eats its own tail.</p>
         <span class="badge bootstrap">Bootstrapping</span>
       </a>
-      <a href="s_cot/" class="card" style="text-decoration:none; color:inherit;">
+      <a href="s_cot/" class="card" data-repo="s_cot" style="text-decoration:none; color:inherit; display:none;">
         <h3>Spectral-R1 (s_cot)</h3>
         <p>Latent energy-based GRPO reasoning with spectral rewards on LFM2.5. Active research.</p>
         <span class="badge active">Training + Paper</span>
       </a>
-      <div class="card">
+      <div class="card" data-repo="long-vqa" style="display:none;">
         <h3>MMReD (long-vqa)</h3>
         <p>Cross-modal dense context reasoning benchmark. MERA integration for Russian LLM evaluation.</p>
         <span class="badge eval">Eval Ongoing</span>
       </div>
-      <div class="card">
+      <div class="card" data-repo="bbbo" style="display:none;">
         <h3>BBBO</h3>
         <p>Bayesian black-box optimization framework. General-purpose optimizer for hyperparameter search.</p>
         <span class="badge active">Active Development</span>
@@ -77,6 +77,24 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Repo visibility gate
+    async function checkRepoVisibility(repo) {
+      try {
+        const r = await fetch(`https://api.github.com/repos/Fr0do/${repo}`, { method: 'HEAD' });
+        return r.ok;
+      } catch { return false; }
+    }
+
+    (async () => {
+      const cards = document.querySelectorAll('.card[data-repo]');
+      await Promise.all(Array.from(cards).map(async card => {
+        const repo = card.dataset.repo;
+        if (repo === 'ouroboros') return; // always visible
+        const isPublic = await checkRepoVisibility(repo);
+        if (isPublic) card.style.display = '';
+      }));
+    })();
   </script>
 </body>
 </html>

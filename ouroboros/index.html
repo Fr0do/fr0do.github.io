@@ -290,17 +290,17 @@
           <tr><th>Project</th><th>Description</th><th>Status</th></tr>
         </thead>
         <tbody>
-          <tr>
+          <tr data-repo="s_cot" style="display:none;">
             <td><strong>s_cot</strong></td>
             <td>Spectral-R1: latent energy-based GRPO reasoning</td>
             <td><span class="status-pill green">Training + Paper</span></td>
           </tr>
-          <tr>
+          <tr data-repo="long-vqa" style="display:none;">
             <td><strong>long-vqa</strong></td>
             <td>MMReD: cross-modal dense context reasoning benchmark</td>
             <td><span class="status-pill amber">Eval Ongoing</span></td>
           </tr>
-          <tr>
+          <tr data-repo="bbbo" style="display:none;">
             <td><strong>bbbo</strong></td>
             <td>Bayesian black-box optimization framework</td>
             <td><span class="status-pill green">Active Dev</span></td>
@@ -368,6 +368,22 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Repo visibility gate for managed projects table
+    async function checkRepoVisibility(repo) {
+      try {
+        const r = await fetch(`https://api.github.com/repos/Fr0do/${repo}`, { method: 'HEAD' });
+        return r.ok;
+      } catch { return false; }
+    }
+
+    (async () => {
+      const rows = document.querySelectorAll('tr[data-repo]');
+      await Promise.all(Array.from(rows).map(async row => {
+        const isPublic = await checkRepoVisibility(row.dataset.repo);
+        if (isPublic) row.style.display = '';
+      }));
+    })();
 
     // Animate RTK ring on load
     window.addEventListener('load', () => {

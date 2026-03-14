@@ -230,6 +230,22 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Page-level visibility gate — hide entire content if repo is private
+    (async () => {
+      try {
+        const r = await fetch('https://api.github.com/repos/Fr0do/s_cot', { method: 'HEAD' });
+        if (!r.ok) {
+          document.querySelector('.container').innerHTML =
+            '<div style="padding:4rem 2rem; text-align:center;">' +
+            '<h2 style="font-weight:500; color:#555;">This project is not publicly available.</h2>' +
+            '<p style="color:#999; margin-top:1rem;"><a href="../" style="color:#999;">← Back to research portfolio</a></p>' +
+            '</div>';
+        }
+      } catch {
+        // Network error — leave content visible rather than hiding on flaky connections
+      }
+    })();
   </script>
 </body>
 </html>
