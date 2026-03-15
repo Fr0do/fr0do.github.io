@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ouroboros — Research Governance Protocol</title>
+  <title>Ouroboros — Research Pipeline Protocol</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <div class="hero">
       <img src="../logo.svg" alt="Ouroboros logo" class="hero-logo">
       <h1>Ouroboros</h1>
-      <p class="subtitle">Research Governance Protocol</p>
+      <p class="subtitle">Research Pipeline Protocol</p>
       <p class="tagline">The serpent eats its own tail — each project feeds the next</p>
     </div>
 
@@ -24,7 +24,7 @@
     </nav>
 
     <section>
-      <p>Ouroboros is the governance layer for all active research — a Telegram bot with 17 commands, multi-agent orchestration via Claude Code teams, CI/CD automation, and a self-improving workflow that documents its own evolution.</p>
+      <p>Ouroboros is the research operating protocol for automating the CS paper pipeline from idea to publication — a Telegram bot with 19 commands, multi-agent orchestration via Claude Code teams, CI/CD automation, and a self-improving workflow that documents its own evolution across 7 pipeline stages.</p>
     </section>
 
     <!-- ═══ DASHBOARD ═══ -->
@@ -34,19 +34,19 @@
     <!-- VITALS:START — auto-updated by /page command -->
     <div class="metrics-grid" id="vitals">
       <div class="metric-card accent-blue">
-        <div class="value" id="v-commits">31</div>
+        <div class="value" id="v-commits">71</div>
         <div class="metric-label">Commits (30d)</div>
       </div>
       <div class="metric-card accent-indigo">
-        <div class="value" id="v-loc">2853</div>
+        <div class="value" id="v-loc">5065</div>
         <div class="metric-label">Lines of Code</div>
       </div>
       <div class="metric-card">
-        <div class="value" id="v-files">29</div>
+        <div class="value" id="v-files">35</div>
         <div class="metric-label">Python Files</div>
       </div>
       <div class="metric-card accent-green">
-        <div class="value" id="v-handlers">17</div>
+        <div class="value" id="v-handlers">19</div>
         <div class="metric-label">Bot Handlers</div>
       </div>
       <div class="metric-card">
@@ -54,15 +54,15 @@
         <div class="metric-label">Services</div>
       </div>
       <div class="metric-card accent-amber">
-        <div class="value" id="v-issues-open">0</div>
+        <div class="value" id="v-issues-open">5</div>
         <div class="metric-label">Open Issues</div>
       </div>
       <div class="metric-card accent-green">
-        <div class="value" id="v-issues-closed">0</div>
+        <div class="value" id="v-issues-closed">25</div>
         <div class="metric-label">Closed Issues</div>
       </div>
       <div class="metric-card accent-indigo">
-        <div class="value" id="v-version">v6.30.0</div>
+        <div class="value" id="v-version">v7.0.0</div>
         <div class="metric-label">Version</div>
       </div>
     </div>
@@ -81,7 +81,7 @@
             <div class="ring-label" id="rtk-pct">78%</div>
           </div>
           <div class="ring-details">
-            <strong>172K tokens</strong> saved out of 222K<br>
+            <strong>241K tokens</strong> saved out of 310K<br>
             436 commands proxied<br>
             Avg latency: 287ms<br>
             Top: <code>git log -p</code> → 99.9% savings<br>
@@ -96,7 +96,7 @@
           <div class="h-bar-row">
             <span class="h-bar-label">Handlers</span>
             <div class="h-bar-track"><div class="h-bar-fill blue" style="width:65%"></div></div>
-            <span class="h-bar-value">17</span>
+            <span class="h-bar-value">19</span>
           </div>
           <div class="h-bar-row">
             <span class="h-bar-label">Services</span>
@@ -204,8 +204,8 @@
       </div>
       <div class="timeline-entry">
         <div class="timeline-date">2026-03-09</div>
-        <div class="timeline-title">Telegram bot: 17 commands operational</div>
-        <div class="timeline-body">Full remote control panel: /run, /stop, /logs, /metrics, /completions, /ckpt, /disk, /sync, /gpu, /crashlog, /vitals, /feature, /page, /team, /note, /task, /update. Runs on kurkin-1 compute node.</div>
+        <div class="timeline-title">Telegram bot: 19 commands operational</div>
+        <div class="timeline-body">Full remote control panel: /run, /stop, /logs, /metrics, /completions, /ckpt, /disk, /sync, /gpu, /crashlog, /vitals, /feature, /page, /team, /note, /task, /update, /eval, /tg-organize. Runs on kurkin-1 compute node.</div>
         <span class="timeline-tag status">status</span>
       </div>
       <div class="timeline-entry">
@@ -237,7 +237,7 @@
       <div class="arch-node">
         <div class="arch-icon">💬</div>
         <div class="arch-name">Telegram</div>
-        <div class="arch-detail">17 commands</div>
+        <div class="arch-detail">19 commands</div>
       </div>
       <div class="arch-arrow">→</div>
       <div class="arch-node">
@@ -307,45 +307,57 @@
           </tr>
           <tr>
             <td><strong>ouroboros</strong></td>
-            <td>This meta-project</td>
-            <td><span class="status-pill indigo">Bootstrapping</span></td>
+            <td>This meta-project — pipeline protocol, bot, CI/CD, agent orchestration</td>
+            <td><span class="status-pill green">Active</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <!-- ═══ PRINCIPLES ═══ -->
-    <h2>Principles</h2>
-    <p class="section-desc">Seven rules governing the protocol.</p>
+    <h2>Operational Rules</h2>
+    <p class="section-desc">Ten rules governing the protocol.</p>
 
     <div class="principles-grid reveal">
       <div class="principle">
         <span class="principle-num">1</span>
-        <div class="principle-text"><strong>Autonomy with accountability</strong> — agents work independently but log everything</div>
+        <div class="principle-text"><strong>Loop closes</strong> — every artifact must improve the next iteration. Dead-end infra gets deleted.</div>
       </div>
       <div class="principle">
         <span class="principle-num">2</span>
-        <div class="principle-text"><strong>Minimal overhead</strong> — RTK for tokens, Telegram for control, Notion for memory</div>
+        <div class="principle-text"><strong>Issues before code</strong> — create a GitHub issue before any feature. <code>fixes #N</code> in every commit.</div>
       </div>
       <div class="principle">
         <span class="principle-num">3</span>
-        <div class="principle-text"><strong>Reproducibility</strong> — every experiment has a config, seed, and commit hash</div>
+        <div class="principle-text"><strong>Reproducibility</strong> — config + seed + commit hash are mandatory for every run.</div>
       </div>
       <div class="principle">
         <span class="principle-num">4</span>
-        <div class="principle-text"><strong>Cross-pollination</strong> — projects share insights, not just code</div>
+        <div class="principle-text"><strong>Atomic commits</strong> — self-contained and non-breaking. Half-states don't exist; they're bugs.</div>
       </div>
       <div class="principle">
         <span class="principle-num">5</span>
-        <div class="principle-text"><strong>The loop closes</strong> — OUROBOROS.md itself gets updated as the process improves</div>
+        <div class="principle-text"><strong>Plan large, implement small</strong> — Opus for architecture, Sonnet subagents for code.</div>
       </div>
       <div class="principle">
         <span class="principle-num">6</span>
-        <div class="principle-text"><strong>Atomic updates</strong> — every file change is self-contained and non-breaking</div>
+        <div class="principle-text"><strong>Minimalism</strong> — one source of truth per fact. Delete over deprecate.</div>
       </div>
       <div class="principle">
         <span class="principle-num">7</span>
-        <div class="principle-text"><strong>Minimalism</strong> — single source of truth; delete over deprecate</div>
+        <div class="principle-text"><strong>Autonomy with trail</strong> — agents act freely; every action is logged, every decision is traceable.</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">8</span>
+        <div class="principle-text"><strong>Minimal overhead</strong> — every tool justifies itself by saving more time than it costs.</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">9</span>
+        <div class="principle-text"><strong>Cross-pollination</strong> — insights transfer across projects.</div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">10</span>
+        <div class="principle-text"><strong>Ship or kill</strong> — three months without progress means a deadline or a funeral.</div>
       </div>
     </div>
 
