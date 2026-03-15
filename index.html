@@ -45,7 +45,7 @@
 
     <div class="card-grid reveal">
       <a href="ouroboros/" class="card" data-repo="ouroboros" style="text-decoration:none; color:inherit;">
-        <h3>Ouroboros</h3>
+        <h3>OuroSSS</h3>
         <p>Research pipeline protocol — idea to publication. Telegram bot (19 commands), multi-agent orchestration, CI/CD, 7 pipeline stages.</p>
         <span class="badge active">Active</span>
       </a>
@@ -67,7 +67,7 @@
     </div>
 
     <footer>
-      <p>Built with zero dependencies. Auto-updated by <a href="https://github.com/Fr0do/ouroboros">Ouroboros</a>.</p>
+      <p>Built with zero dependencies. Auto-updated by <a href="https://github.com/Fr0do/ourosss">OuroSSS</a>.</p>
     </footer>
   </div>
 
@@ -90,7 +90,7 @@
       const cards = document.querySelectorAll('.card[data-repo]');
       await Promise.all(Array.from(cards).map(async card => {
         const repo = card.dataset.repo;
-        if (repo === 'ouroboros') return; // always visible
+        if (repo === 'ourosss') return; // always visible
         const isPublic = await checkRepoVisibility(repo);
         if (isPublic) card.style.display = '';
       }));
