@@ -1,56 +1,44 @@
 [
   {
-    "date": "2026-03-10",
-    "title": "Status & Findings section added to project page",
-    "body": "Living journal powered by /page Telegram command. Entries stored in status.json, rendered as Apple-minimalist timeline. Tags: status, finding, milestone.",
+    "date": "2026-03-16",
+    "title": "Unforked — OuroSSS is now standalone",
+    "body": "Deleted fork dependency on razzant/ouroboros, recreated as fresh standalone repo. Clean slate: v0.0.1, zero issues, main branch only.",
     "tag": "milestone"
+  },
+  {
+    "date": "2026-03-16",
+    "title": "TTHRESH research bootstrapped",
+    "body": "Tucker tensor compression rewrite in JAX — differentiable HOSVD with learned factor matrices. Assessment moved from PR to Notion, repo initialized on kurkin-1.",
+    "tag": "status"
+  },
+  {
+    "date": "2026-03-15",
+    "title": "Migrated to uv + pyproject.toml",
+    "body": "Full uv dependency management with lockfile, pre-commit hooks, ruff linting. Entry point via `uv run ourosss`. 19 commits in a single day of restructuring.",
+    "tag": "milestone"
+  },
+  {
+    "date": "2026-03-14",
+    "title": "Telegram chat organizer + research commands",
+    "body": "New /tg-organize for folder management and bulk archive. /research command for Notion research log DB. Issue routing protocol established.",
+    "tag": "status"
+  },
+  {
+    "date": "2026-03-11",
+    "title": "Async CI for research pipeline",
+    "body": "GitHub Actions workflows for async research pipeline stages. Bot disk alerts, command cleanup, Notion status types fixed.",
+    "tag": "status"
   },
   {
     "date": "2026-03-10",
     "title": "GitHub Pages site launched",
-    "body": "Research portfolio live at fr0do.github.io. Ouroboros project page with auto-updating vitals via /page Telegram command. Apple-minimalist design, zero dependencies.",
+    "body": "Research portfolio live at fr0do.github.io. Auto-updating vitals via /page Telegram command. Apple-minimalist design, zero dependencies.",
     "tag": "milestone"
   },
   {
-    "date": "2026-03-09",
-    "title": "Issue journaling workflow established",
-    "body": "Every feature now starts as a GitHub issue with self-discussion in comments. /feature Telegram command creates structured issues. /vitals dashboard shows project health as a 2x2 chart.",
-    "tag": "milestone"
-  },
-  {
-    "date": "2026-03-09",
-    "title": "Multi-agent orchestration integrated",
-    "body": "Native Claude Code agent teams (3-5 teammates, shared task list, plan approval gates) replaced the filesystem-based team/ fallback. Parallel agent implementation with zero file conflicts.",
-    "tag": "status"
-  },
-  {
-    "date": "2026-03-09",
-    "title": "CI/CD pipeline: ruff, stale bot, release automation",
-    "body": "Pre-commit with ruff linting on push. Stale issue bot (90d stale, 30d close). Release workflow on tag push. Upstream sync from razzant/ouroboros daily.",
-    "tag": "status"
-  },
-  {
-    "date": "2026-03-09",
-    "title": "Telegram bot: 17 commands operational",
-    "body": "Full remote control panel: /run, /stop, /logs, /metrics, /completions, /ckpt, /disk, /sync, /gpu, /crashlog, /vitals, /feature, /page, /team, /note, /task, /update. Runs on kurkin-1 compute node.",
-    "tag": "status"
-  },
-  {
-    "date": "2026-03-09",
-    "title": "RTK token savings: 60-90% on CLI operations",
-    "body": "Rust Token Killer auto-proxies all shell commands via Claude Code hook. Massive context window savings on git, file listing, and dev operations.",
-    "tag": "finding"
-  },
-  {
     "date": "2026-03-08",
-    "title": "Spectral-R1: curriculum GRPO training in progress",
-    "body": "LFM2.5-1.2B-Thinking with spectral energy rewards. Dataset v3 (adjacency lists, 3-6 nodes, forced 2+ hops). Strong conciseness rewards shaping reasoning length.",
-    "tag": "finding"
-  },
-  {
-    "date": "2026-03-08",
-    "title": "Ouroboros bootstrapped",
-    "body": "Initial meta-project created via Cowork. OUROBOROS.md governance protocol, Telegram bot skeleton, project registry for s_cot, long-vqa, bbbo.",
+    "title": "OuroSSS bootstrapped",
+    "body": "Initial meta-project: OUROBOROS.md governance protocol, Telegram bot (19 commands), multi-agent orchestration, CI/CD automation.",
     "tag": "milestone"
   }
 ]

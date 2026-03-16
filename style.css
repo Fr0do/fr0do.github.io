@@ -734,6 +734,11 @@ footer a {
   transform: translateY(0);
 }
 
+/* ─── Heatmap grid ─── */
+#heatmap {
+  grid-template-rows: repeat(auto-fill, 1fr);
+}
+
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }

@@ -34,7 +34,7 @@
     <!-- VITALS:START — auto-updated by /page command -->
     <div class="metrics-grid" id="vitals">
       <div class="metric-card accent-blue">
-        <div class="value" id="v-commits">71</div>
+        <div class="value" id="v-commits">10</div>
         <div class="metric-label">Commits (30d)</div>
       </div>
       <div class="metric-card accent-indigo">
@@ -54,15 +54,15 @@
         <div class="metric-label">Services</div>
       </div>
       <div class="metric-card accent-amber">
-        <div class="value" id="v-issues-open">5</div>
+        <div class="value" id="v-issues-open">0</div>
         <div class="metric-label">Open Issues</div>
       </div>
       <div class="metric-card accent-green">
-        <div class="value" id="v-issues-closed">25</div>
+        <div class="value" id="v-issues-closed">0</div>
         <div class="metric-label">Closed Issues</div>
       </div>
       <div class="metric-card accent-indigo">
-        <div class="value" id="v-version">v7.0.0</div>
+        <div class="value" id="v-version">v0.0.1</div>
         <div class="metric-label">Version</div>
       </div>
     </div>
@@ -78,14 +78,14 @@
               <circle class="ring-bg" cx="50" cy="50" r="40"/>
               <circle class="ring-fill" cx="50" cy="50" r="40" id="rtk-ring"/>
             </svg>
-            <div class="ring-label" id="rtk-pct">78%</div>
+            <div class="ring-label" id="rtk-pct">77%</div>
           </div>
           <div class="ring-details">
-            <strong>241K tokens</strong> saved out of 310K<br>
-            436 commands proxied<br>
-            Avg latency: 287ms<br>
+            <strong>262.9K tokens</strong> saved out of 340.8K<br>
+            850 commands proxied<br>
+            Avg latency: 380ms<br>
             Top: <code>git log -p</code> → 99.9% savings<br>
-            <span style="color:var(--green)">~$0.50 saved at Opus rates</span>
+            <span style="color:var(--green)">~$1.05 saved at Opus rates</span>
           </div>
         </div>
       </div>
@@ -121,13 +121,13 @@
       <div class="chart-card">
         <h3>Commit Activity (last 7 days)</h3>
         <div class="bar-chart" id="commit-bars">
-          <div class="bar" style="height:15%"></div>
-          <div class="bar" style="height:0%"></div>
-          <div class="bar" style="height:0%"></div>
+          <div class="bar" style="height:70%"></div>
           <div class="bar" style="height:100%"></div>
-          <div class="bar" style="height:85%"></div>
-          <div class="bar" style="height:40%"></div>
-          <div class="bar" style="height:20%"></div>
+          <div class="bar" style="height:0%"></div>
+          <div class="bar" style="height:0%"></div>
+          <div class="bar" style="height:9%"></div>
+          <div class="bar" style="height:83%"></div>
+          <div class="bar" style="height:4%"></div>
         </div>
         <div class="bar-labels">
           <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
@@ -166,6 +166,27 @@
       </div>
     </div>
 
+    <!-- ═══ GITHUB PULSE ═══ -->
+    <h2 id="pulse">GitHub Pulse</h2>
+    <p class="section-desc">Live data from GitHub API. Refreshes on every page load.</p>
+
+    <div class="dashboard reveal">
+      <div class="chart-card">
+        <h3>Commit Heatmap (30 days)</h3>
+        <div id="heatmap" style="display:grid; grid-template-columns:repeat(7,1fr); gap:3px;"></div>
+        <div style="display:flex; justify-content:space-between; margin-top:8px;">
+          <span style="font-size:0.65rem; color:var(--text-secondary);">Mon</span>
+          <span style="font-size:0.65rem; color:var(--text-secondary);">Sun</span>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Repository Pulse</h3>
+        <div id="repo-pulse" style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8;">
+          Loading...
+        </div>
+      </div>
+    </div>
+
     <!-- ═══ STATUS & FINDINGS ═══ -->
     <h2 id="status">Status &amp; Findings</h2>
     <p class="section-desc">A living journal. Updated via Telegram <code>/page</code> command.</p>
@@ -173,57 +194,45 @@
     <!-- STATUS:START — auto-updated by /page command -->
     <div class="timeline" id="status">
       <div class="timeline-entry milestone">
-        <div class="timeline-date">2026-03-10</div>
-        <div class="timeline-title">Status &amp; Findings section added to project page</div>
-        <div class="timeline-body">Living journal powered by /page Telegram command. Entries stored in status.json, rendered as Apple-minimalist timeline. Tags: status, finding, milestone.</div>
+        <div class="timeline-date">2026-03-16</div>
+        <div class="timeline-title">Unforked — OuroSSS is now standalone</div>
+        <div class="timeline-body">Deleted fork dependency on razzant/ouroboros, recreated as fresh standalone repo. Clean slate: v0.0.1, zero issues, main branch only.</div>
         <span class="timeline-tag milestone">milestone</span>
+      </div>
+      <div class="timeline-entry">
+        <div class="timeline-date">2026-03-16</div>
+        <div class="timeline-title">TTHRESH research bootstrapped</div>
+        <div class="timeline-body">Tucker tensor compression rewrite in JAX — differentiable HOSVD with learned factor matrices. Assessment moved from PR to Notion, repo initialized on kurkin-1.</div>
+        <span class="timeline-tag status">status</span>
+      </div>
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">2026-03-15</div>
+        <div class="timeline-title">Migrated to uv + pyproject.toml</div>
+        <div class="timeline-body">Full uv dependency management with lockfile, pre-commit hooks, ruff linting. Entry point via `uv run ourosss`. 19 commits in a single day of restructuring.</div>
+        <span class="timeline-tag milestone">milestone</span>
+      </div>
+      <div class="timeline-entry">
+        <div class="timeline-date">2026-03-14</div>
+        <div class="timeline-title">Telegram chat organizer + research commands</div>
+        <div class="timeline-body">New /tg-organize for folder management and bulk archive. /research command for Notion research log DB. Issue routing protocol established.</div>
+        <span class="timeline-tag status">status</span>
+      </div>
+      <div class="timeline-entry">
+        <div class="timeline-date">2026-03-11</div>
+        <div class="timeline-title">Async CI for research pipeline</div>
+        <div class="timeline-body">GitHub Actions workflows for async research pipeline stages. Bot disk alerts, command cleanup, Notion status types fixed.</div>
+        <span class="timeline-tag status">status</span>
       </div>
       <div class="timeline-entry milestone">
         <div class="timeline-date">2026-03-10</div>
         <div class="timeline-title">GitHub Pages site launched</div>
-        <div class="timeline-body">Research portfolio live at fr0do.github.io. Ouroboros project page with auto-updating vitals via /page Telegram command. Apple-minimalist design, zero dependencies.</div>
+        <div class="timeline-body">Research portfolio live at fr0do.github.io. Auto-updating vitals via /page Telegram command. Apple-minimalist design, zero dependencies.</div>
         <span class="timeline-tag milestone">milestone</span>
-      </div>
-      <div class="timeline-entry milestone">
-        <div class="timeline-date">2026-03-09</div>
-        <div class="timeline-title">Issue journaling workflow established</div>
-        <div class="timeline-body">Every feature now starts as a GitHub issue with self-discussion in comments. /feature Telegram command creates structured issues. /vitals dashboard shows project health as a 2x2 chart.</div>
-        <span class="timeline-tag milestone">milestone</span>
-      </div>
-      <div class="timeline-entry">
-        <div class="timeline-date">2026-03-09</div>
-        <div class="timeline-title">Multi-agent orchestration integrated</div>
-        <div class="timeline-body">Native Claude Code agent teams (3-5 teammates, shared task list, plan approval gates) replaced the filesystem-based team/ fallback. Parallel agent implementation with zero file conflicts.</div>
-        <span class="timeline-tag status">status</span>
-      </div>
-      <div class="timeline-entry">
-        <div class="timeline-date">2026-03-09</div>
-        <div class="timeline-title">CI/CD pipeline: ruff, stale bot, release automation</div>
-        <div class="timeline-body">Pre-commit with ruff linting on push. Stale issue bot (90d stale, 30d close). Release workflow on tag push. Upstream sync from razzant/ouroboros daily.</div>
-        <span class="timeline-tag status">status</span>
-      </div>
-      <div class="timeline-entry">
-        <div class="timeline-date">2026-03-09</div>
-        <div class="timeline-title">Telegram bot: 19 commands operational</div>
-        <div class="timeline-body">Full remote control panel: /run, /stop, /logs, /metrics, /completions, /ckpt, /disk, /sync, /gpu, /crashlog, /vitals, /feature, /page, /team, /note, /task, /update, /eval, /tg-organize. Runs on kurkin-1 compute node.</div>
-        <span class="timeline-tag status">status</span>
-      </div>
-      <div class="timeline-entry">
-        <div class="timeline-date">2026-03-09</div>
-        <div class="timeline-title">RTK token savings: 60-90% on CLI operations</div>
-        <div class="timeline-body">Rust Token Killer auto-proxies all shell commands via Claude Code hook. Massive context window savings on git, file listing, and dev operations.</div>
-        <span class="timeline-tag finding">finding</span>
-      </div>
-      <div class="timeline-entry">
-        <div class="timeline-date">2026-03-08</div>
-        <div class="timeline-title">Spectral-R1: curriculum GRPO training in progress</div>
-        <div class="timeline-body">LFM2.5-1.2B-Thinking with spectral energy rewards. Dataset v3 (adjacency lists, 3-6 nodes, forced 2+ hops). Strong conciseness rewards shaping reasoning length.</div>
-        <span class="timeline-tag finding">finding</span>
       </div>
       <div class="timeline-entry milestone">
         <div class="timeline-date">2026-03-08</div>
         <div class="timeline-title">OuroSSS bootstrapped</div>
-        <div class="timeline-body">Initial meta-project created via Cowork. OUROBOROS.md governance protocol, Telegram bot skeleton, project registry for s_cot, long-vqa, bbbo.</div>
+        <div class="timeline-body">Initial meta-project: OUROBOROS.md governance protocol, Telegram bot (19 commands), multi-agent orchestration, CI/CD automation.</div>
         <span class="timeline-tag milestone">milestone</span>
       </div>
     </div>
@@ -273,8 +282,8 @@
         <tbody>
           <tr><td><strong>Telegram Bot</strong></td><td>Remote control panel — training, infra, notes, team management</td></tr>
           <tr><td><strong>Agent Teams</strong></td><td>Native Claude Code multi-agent orchestration with shared task lists</td></tr>
-          <tr><td><strong>GitHub CI</strong></td><td>Lint (ruff), release automation, upstream sync, remote health ping</td></tr>
-          <tr><td><strong>RTK Integration</strong></td><td>78% token savings on all CLI operations via Rust Token Killer</td></tr>
+          <tr><td><strong>GitHub CI</strong></td><td>Lint (ruff), release automation, remote health ping</td></tr>
+          <tr><td><strong>RTK Integration</strong></td><td>77% token savings on all CLI operations via Rust Token Killer</td></tr>
           <tr><td><strong>Issue Journaling</strong></td><td>Every feature starts as an issue, with progress comments and auto-close</td></tr>
         </tbody>
       </table>
@@ -304,6 +313,11 @@
             <td><strong>bbbo</strong></td>
             <td>Bayesian black-box optimization framework</td>
             <td><span class="status-pill green">Active Dev</span></td>
+          </tr>
+          <tr data-repo="tthresh">
+            <td><strong>tthresh</strong></td>
+            <td>Differentiable Tucker compression in JAX</td>
+            <td><span class="status-pill indigo">Bootstrap</span></td>
           </tr>
           <tr>
             <td><strong>ourosss</strong></td>
@@ -399,7 +413,7 @@
 
     // Animate RTK ring on load
     window.addEventListener('load', () => {
-      const pct = 78;
+      const pct = 77;
       const circumference = 2 * Math.PI * 40; // r=40
       const offset = circumference * (1 - pct / 100);
       const ring = document.getElementById('rtk-ring');
@@ -407,6 +421,76 @@
         setTimeout(() => { ring.style.strokeDashoffset = offset; }, 300);
       }
     });
+
+    // GitHub Pulse — live API data
+    async function fetchGitHubPulse() {
+      const repo = 'Fr0do/ourosss';
+      try {
+        // Fetch commit activity for heatmap
+        const commitsRes = await fetch(`https://api.github.com/repos/${repo}/commits?per_page=100`);
+        const commits = commitsRes.ok ? await commitsRes.json() : [];
+
+        // Build 30-day heatmap
+        const heatmap = document.getElementById('heatmap');
+        if (heatmap && commits.length) {
+          const counts = {};
+          commits.forEach(c => {
+            const d = c.commit.author.date.slice(0, 10);
+            counts[d] = (counts[d] || 0) + 1;
+          });
+          const maxCount = Math.max(...Object.values(counts), 1);
+          heatmap.innerHTML = '';
+          for (let i = 29; i >= 0; i--) {
+            const d = new Date();
+            d.setDate(d.getDate() - i);
+            const key = d.toISOString().slice(0, 10);
+            const count = counts[key] || 0;
+            const intensity = count / maxCount;
+            const color = count === 0
+              ? 'var(--border)'
+              : `rgba(0,113,227,${0.2 + intensity * 0.8})`;
+            const cell = document.createElement('div');
+            cell.style.cssText = `aspect-ratio:1; border-radius:3px; background:${color}; cursor:default;`;
+            cell.title = `${key}: ${count} commit${count !== 1 ? 's' : ''}`;
+            heatmap.appendChild(cell);
+          }
+        }
+
+        // Fetch repo info
+        const repoRes = await fetch(`https://api.github.com/repos/${repo}`);
+        const repoData = repoRes.ok ? await repoRes.json() : null;
+
+        const pulse = document.getElementById('repo-pulse');
+        if (pulse && repoData) {
+          const created = new Date(repoData.created_at);
+          const age = Math.floor((Date.now() - created) / 86400000);
+          pulse.textContent = '';
+          const grid = document.createElement('div');
+          grid.style.cssText = 'display:grid; grid-template-columns:1fr 1fr; gap:8px 24px;';
+          const items = [
+            [repoData.size, 'KB repo size'],
+            [commits.length, 'recent commits'],
+            [repoData.open_issues_count, 'open issues'],
+            [age, 'days old'],
+            [repoData.default_branch, 'default branch'],
+            [repoData.language || 'Python', 'primary lang'],
+          ];
+          items.forEach(([val, label]) => {
+            const cell = document.createElement('div');
+            const strong = document.createElement('strong');
+            strong.textContent = val;
+            cell.appendChild(strong);
+            cell.appendChild(document.createTextNode(' ' + label));
+            grid.appendChild(cell);
+          });
+          pulse.appendChild(grid);
+        }
+      } catch (e) {
+        const pulse = document.getElementById('repo-pulse');
+        if (pulse) pulse.textContent = 'Could not fetch GitHub data.';
+      }
+    }
+    fetchGitHubPulse();
   </script>
 </body>
 </html>
